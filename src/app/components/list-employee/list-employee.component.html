@@ -1,0 +1,30 @@
+<div class="card " >
+    <div class="card-header d-flex justify-content-around">
+       Emplyee List
+        <a class="btn btn-success" routerLink="/add-employee"> Add Employee </a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of Employees; let iControl=index" @enterState @emplyeItem>
+                    <td>{{employee.id}}</td>
+                    <td>{{employee.nombre}}</td>
+                    <td>{{employee.correo}}</td>
+                    <td>
+                      <a class="btn btn-info" routerLink="/edit-employee/{{employee.id}}"> Edit </a> |
+                        <a class="btn btn-danger" (click)="borrarRegistro(employee.id, iControl)" role="button">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</div>
